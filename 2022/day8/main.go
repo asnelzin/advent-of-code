@@ -63,6 +63,14 @@ func part1() {
 		}
 	}
 	fmt.Println(len(visible))
+
+	var scores []int
+	for t := range visible {
+		scores = append(scores, score(forest, t.x, t.y))
+	}
+
+	sort.Ints(scores)
+	fmt.Println(scores[len(scores)-1])
 }
 
 func score(forest [][]int, i int, j int) int {
